@@ -58,7 +58,7 @@
                     <td>{{ $category->url }}</td>
                     <td>{{ $category->description }}</td>
                     <td>
-                        <a href="{{ route('categories.edit', ['id' => $category->id]) }}" class="black">Edit</a>
+                        <a href="{{ route('categories.edit', $category->id) }}" class="black">Edit</a>
                         <a href="{{ route('categories.show', $category->id) }}" class="">Detalhes</a>
                     </td>
                 </tr>

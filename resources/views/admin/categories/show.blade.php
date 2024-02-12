@@ -32,6 +32,6 @@
     </div>
 </div>
 </div>
-<a href="{{ route('categories.edit', ['id' => $category->id]) }}" class="black">Edit</a>
+<a href="{{ route('categories.edit', ['category' => $category->id]) }}" class="black">Edit</a>
 <a href="{{ route('categories.create') }}" class="btn btn-success">add</a>
 @stop

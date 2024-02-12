@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateCategoryFormRequest extends FormRequest
+class StoreUpdateProductFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,13 +19,15 @@ class StoreUpdateCategoryFormRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        $id = $this->segment(3);
+
+     public function rules(): array
+     {
         return [
-            'title' => "required|min:3|max:60|unique:products,title,{$id},id",
-            'url' => "required|min:3|max:60|unique:products,url,{$id},id",
-            'title' => 'max:2000',
+            'name'        => 'required|min:3|max:100|unique:products,name',
+            'url'         => 'required|min:3|max:100|:products,url',
+            'price'       => 'required|numeric',
+            'description' => 'nullable|max:9000',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }

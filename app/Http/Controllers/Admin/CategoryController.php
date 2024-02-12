@@ -2,7 +2,6 @@
 
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Requests\StoreUpdateCategoryFormRequest;
 use DB;
 use App\Http\Controllers\Controller;
