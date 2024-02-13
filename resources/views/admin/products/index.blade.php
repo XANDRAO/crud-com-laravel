@@ -25,15 +25,21 @@
                 @csrf
                 <select name="category" class="form-control">
                     <option value="">Categoria</option>
-                    @foreach ($categories as $id => $title)
-                    <option value="{{ $id }}">{{ $title }}</option>
+                    @foreach ($categories as $id => $category)
+                    <option value="{{ $id }}" @if (isset($filters['category']) && $filters['category'] == $id)
+                           selected 
+                    @endif> {{ $category }}</option>
                     @endforeach
                 </select>                
-                <input type='text' name="name" placeholder="Nome:" class="form-control">
+                <input type='text' name="name" placeholder="Nome:" class="form-control" value="{{ $filters['name'] ?? ''}}">
 
-                <input type='text' name="price" placeholder="Preço:" class="form-control">
+                <input type='text' name="price" placeholder="Preço:" class="form-control" value="{{ $filters['price'] ?? ''}}">
                 <button type="submit" class="btn btn-primary">Pesquisar</button>
             </form>
+
+            @if (isset($filters))
+              {{ dd($filters) }}
+            @endif
         </div>        
     </div>
 
